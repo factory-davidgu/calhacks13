@@ -1,0 +1,16 @@
+{
+  "name": "sdk-calhacks-presentation",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@factory/droid-sdk": "^0.10.0",
+    "@types/node": "^22.19.15",
+    "shiki": "^3.23.0",
+    "typescript": "^5.9.3",
+    "zod": "^3.25.76"
+  }
+}

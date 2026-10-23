@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A 5-minute CalHacks introduction to the Droid TypeScript SDK."
+    />
+    <meta name="theme-color" content="#000000" />
+    <title>Droid SDK · CalHacks</title>
+    <link
+      rel="preload"
+      href="assets/fonts/Geist.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/GeistMono.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="deck.css" />
+  </head>
+  <body>
+    <main id="stage" aria-label="Droid SDK CalHacks presentation">
+      <div class="atmosphere" aria-hidden="true"></div>
+      <div id="slides"></div>
+      <footer>
+        <span id="chapter">Droid SDK · CalHacks</span>
+        <nav aria-label="Presentation controls">
+          <button id="previous" aria-label="Previous build or slide">←</button>
+          <span id="counter" aria-live="polite"></span>
+          <button id="next" aria-label="Next build or slide">→</button>
+        </nav>
+      </footer>
+      <div id="progress" aria-hidden="true"></div>
+    </main>
+    <div id="announcement" class="sr-only" role="status"></div>
+    <noscript>This presentation requires JavaScript.</noscript>
+    <script src="deck.js" defer></script>
+  </body>
+</html>
