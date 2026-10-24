@@ -8,7 +8,12 @@
       "David G.",
       "𝕏 @agent_wrap"
     ],
-    "meta": "CalHacks · 5 minutes"
+    "meta": "CalHacks · 5 minutes",
+    "credits": {
+      "qr": "assets/qr-credits.svg",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSd90bta_Gj7szptt1sprHlO2mz_t-ZGeXHWO0e-p_rcuh2fgQ/viewform",
+      "caption": "Scan for Factory credits"
+    }
   },
   {
     "kind": "code",

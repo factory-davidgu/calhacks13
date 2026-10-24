@@ -16,11 +16,14 @@ npm run build       # regenerate public/slides.json
 npm run typecheck   # typecheck lessons/ against the published SDK
 ```
 
-The QR code on the last slide is `public/assets/qr-sdk.svg`. To make it again:
+The deck has two QR codes. The cover links to the CalHacks credits form (`public/assets/qr-credits.svg`), and the last slide links to the SDK repo (`public/assets/qr-sdk.svg`). To make them again:
 
 ```bash
+npx qrcode@1.5.4 -t svg -e M -m 2 -d 000000ff -l ffffffff -o public/assets/qr-credits.svg "https://docs.google.com/forms/d/e/1FAIpQLSd90bta_Gj7szptt1sprHlO2mz_t-ZGeXHWO0e-p_rcuh2fgQ/viewform"
 npx qrcode@1.5.4 -t svg -e M -m 2 -d 000000ff -l ffffffff -o public/assets/qr-sdk.svg "https://github.com/Factory-AI/droid-sdk-typescript"
 ```
+
+If you change a URL, also change it in `build.mjs`.
 
 Commit `public/slides.json` after a build. The GitHub Pages workflow publishes `public/` as it is and does not run the build.
 
