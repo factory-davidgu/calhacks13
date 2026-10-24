@@ -16,6 +16,12 @@ npm run build       # regenerate public/slides.json
 npm run typecheck   # typecheck lessons/ against the published SDK
 ```
 
+The QR code on the last slide is `public/assets/qr-sdk.svg`. To make it again:
+
+```bash
+npx qrcode@1.5.4 -t svg -e M -m 2 -d 000000ff -l ffffffff -o public/assets/qr-sdk.svg "https://github.com/Factory-AI/droid-sdk-typescript"
+```
+
 Commit `public/slides.json` after a build. The GitHub Pages workflow publishes `public/` as it is and does not run the build.
 
 ## Controls

@@ -59,7 +59,9 @@
         html += `<div class="community-grid">${slide.shots.map((s) => `<figure class="shot-card"><div class="shot">${shot(s)}</div><figcaption><span class="shot-name">${escape(s.name)}</span>${escape(s.caption)}</figcaption></figure>`).join("")}</div><div class="use-row">${slide.uses.map(([title, copy]) => `<div><h3>${escape(title)}</h3><p>${escape(copy)}</p></div>`).join("")}</div>`;
       } else {
         html += `<div class="showcase-layout"><div class="shots shots-${slide.shots.length}">${slide.shots.map((s) => `<div class="shot">${shot(s)}</div>`).join("")}</div><aside class="showcase-copy"><p class="via">${escape(slide.via)}</p>${slide.details.map(([title, copy]) => `<div><h3>${escape(title)}</h3><p>${escape(copy)}</p></div>`).join("")}<p class="credit">${escape(slide.credit)}</p></aside></div>`;
-      }    } else if (slide.kind === "close") {
+      }    } else if (slide.kind === "qr") {
+      html += `<div class="qr-layout"><div class="qr-copy"><p class="qr-lede">${escape(slide.lede)}</p><a class="qr-url" href="${escape(slide.url)}" rel="noopener">${escape(slide.display)}</a></div><div class="qr-card"><img src="${escape(slide.qr)}" alt="QR code for ${escape(slide.url)}"></div></div>`;
+    } else if (slide.kind === "close") {
       html += `<div class="links">${slide.links.map(([label, title, url]) => `<div><div class="label">${escape(label)}</div><p class="link-title">${escape(title)}</p><p class="link-url">${escape(url)}</p></div>`).join("")}</div>${slide.handle ? `<p class="handle">${escape(slide.handle)}</p>` : ""}`;
     }
     return html;

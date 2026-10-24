@@ -160,6 +160,15 @@ const slides = [
     ],
     handle: "𝕏 @agent_wrap",
   },
+  {
+    kind: "qr",
+    chapter: "Get started",
+    title: "Scan for the SDK.",
+    lede: "Runnable examples, guides and the API reference for the Droid TypeScript SDK.",
+    url: "https://github.com/Factory-AI/droid-sdk-typescript",
+    display: "github.com/Factory-AI/droid-sdk-typescript",
+    qr: "assets/qr-sdk.svg",
+  },
 ];
 
 const highlighter = await createHighlighter({
