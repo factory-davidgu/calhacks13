@@ -23,6 +23,33 @@
     "lede": "Try Droid, then put it in your hack."
   },
   {
+    "kind": "prompt",
+    "chapter": "Try it now",
+    "title": "Type this prompt in your desktop app",
+    "prompt": [
+      "Use the typescript Factory Droid SDK",
+      "to build me:"
+    ],
+    "blank": "your idea",
+    "downloads": {
+      "label": "No desktop app yet?",
+      "links": [
+        [
+          "macOS (Apple Silicon)",
+          "https://api.factory.ai/api/desktop?platform=darwin&architecture=arm64"
+        ],
+        [
+          "macOS (Intel)",
+          "https://api.factory.ai/api/desktop?platform=darwin&architecture=x64"
+        ],
+        [
+          "Windows",
+          "https://api.factory.ai/api/desktop?platform=win32"
+        ]
+      ]
+    }
+  },
+  {
     "kind": "code",
     "chapter": "01 / Setup",
     "title": "Set up in one minute",

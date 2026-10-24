@@ -14,6 +14,10 @@
   let build = 0;
   const eyebrow = (text) =>
     `<div class="eyebrow"><span class="dot"></span>${escape(text)}</div>`;
+  const downloads = (d) =>
+    d
+      ? `<div class="downloads"><span class="downloads-label">${escape(d.label)}</span>${d.links.map(([name, url]) => `<a href="${escape(url)}" rel="noopener">${escape(name)} ↓</a>`).join("")}</div>`
+      : "";
   // Message text follows the formats in droid-telegram-bot's bot.py.
   const telegram = (label) =>
     `<div class="tg" role="img" aria-label="${escape(label)}"><div class="tg-head"><span class="tg-avatar">D</span><span><strong>Droid</strong><small>bot</small></span></div><div class="tg-chat"><p class="tg-msg out">Why does the login test fail?</p><p class="tg-msg in">Working... (continuing)<br><br>→ Grep: 'expiresAt'<br>→ Read: src/auth/session.ts<br>→ Execute: npm test -- login</p><p class="tg-msg in">The token check compares seconds with milliseconds. I changed <code>isExpired()</code> to use seconds, and the login test passes.</p></div></div>`;
@@ -47,7 +51,7 @@
         })
         .join(
           "",
-        )}</code></pre></div>${slide.downloads ? `<div class="downloads"><span class="downloads-label">${escape(slide.downloads.label)}</span>${slide.downloads.links.map(([name, url]) => `<a href="${escape(url)}" rel="noopener">${escape(name)} ↓</a>`).join("")}</div>` : ""}</div><aside class="points" aria-label="Code walkthrough">${slide.points.map((p, n) => `<button class="point" data-build="${n + 1}" aria-pressed="false"><span class="point-head"><span class="point-num">0${n + 1}</span>${escape(p[0])}</span><p>${escape(p[2])}</p></button>`).join("")}</aside></div>`;
+        )}</code></pre></div>${downloads(slide.downloads)}</div><aside class="points" aria-label="Code walkthrough">${slide.points.map((p, n) => `<button class="point" data-build="${n + 1}" aria-pressed="false"><span class="point-head"><span class="point-num">0${n + 1}</span>${escape(p[0])}</span><p>${escape(p[2])}</p></button>`).join("")}</aside></div>`;
     } else if (slide.kind === "daemon-definition" || slide.kind === "browser") {
       html += `<p class="daemon-lede">${escape(slide.lede)}</p>${slide.command ? `<p class="signature daemon-command">${escape(slide.command)}</p>` : ""}<div class="daemon-flow">${slide.cards.map(([title, copy], i) => `<div class="daemon-card"><div class="label">0${i + 1}</div><h3>${escape(title)}</h3><p>${escape(copy)}</p></div>`).join('<div class="flow-arrow" aria-hidden="true">→</div>')}</div><p class="notice">${escape(slide.notice)}</p>`;
     } else if (slide.kind === "lifecycle" || slide.kind === "topics") {
@@ -61,7 +65,9 @@
         html += `<div class="community-grid">${slide.shots.map((s) => `<figure class="shot-card"><div class="shot">${shot(s)}</div><figcaption><span class="shot-name">${escape(s.name)}</span>${escape(s.caption)}</figcaption></figure>`).join("")}</div><div class="use-row">${slide.uses.map(([title, copy]) => `<div><h3>${escape(title)}</h3><p>${escape(copy)}</p></div>`).join("")}</div>`;
       } else {
         html += `<div class="showcase-layout"><div class="shots shots-${slide.shots.length}">${slide.shots.map((s) => `<div class="shot">${shot(s)}</div>`).join("")}</div><aside class="showcase-copy"><p class="via">${escape(slide.via)}</p>${slide.details.map(([title, copy]) => `<div><h3>${escape(title)}</h3><p>${escape(copy)}</p></div>`).join("")}<p class="credit">${escape(slide.credit)}</p></aside></div>`;
-      }    } else if (slide.kind === "qr") {
+      }    } else if (slide.kind === "prompt") {
+      html += `<div class="prompt-box"><span class="prompt-text">${slide.prompt.map(escape).join(" <br>")}</span> <span class="prompt-blank" aria-label="${escape(slide.blank)}"></span><span class="prompt-caret" aria-hidden="true"></span></div>${downloads(slide.downloads)}`;
+    } else if (slide.kind === "qr") {
       html += `<div class="qr-layout"><div class="qr-copy"><p class="qr-lede">${escape(slide.lede)}</p><a class="qr-url" href="${escape(slide.url)}" rel="noopener">${escape(slide.display)}</a></div><div class="qr-card"><img src="${escape(slide.qr)}" alt="QR code for ${escape(slide.url)}"></div></div>`;
     } else if (slide.kind === "close") {
       html += `<div class="links">${slide.links.map(([label, title, url]) => `<div><div class="label">${escape(label)}</div><p class="link-title">${escape(title)}</p><p class="link-url">${escape(url)}</p></div>`).join("")}</div>${slide.handle ? `<p class="handle">${escape(slide.handle)}</p>` : ""}`;

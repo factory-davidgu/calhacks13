@@ -12,6 +12,13 @@ const escape = (s) =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 
+// Same endpoints as DESKTOP_DOWNLOAD_CONFIG in the web app; each redirects to the latest installer.
+const desktopLinks = [
+  ["macOS (Apple Silicon)", "https://api.factory.ai/api/desktop?platform=darwin&architecture=arm64"],
+  ["macOS (Intel)", "https://api.factory.ai/api/desktop?platform=darwin&architecture=x64"],
+  ["Windows", "https://api.factory.ai/api/desktop?platform=win32"],
+];
+
 // Five minutes: about 30 seconds a slide. Each code slide has at most three highlights.
 const slides = [
   {
@@ -36,6 +43,15 @@ const slides = [
     lede: "Try Droid, then put it in your hack.",
   },
   {
+    kind: "prompt",
+    chapter: "Try it now",
+    title: "Type this prompt in your desktop app.",
+    // Two lines so the blank starts the second line instead of "me:" wrapping alone.
+    prompt: ["Use the typescript Factory Droid SDK", "to build me:"],
+    blank: "your idea",
+    downloads: { label: "No desktop app yet?", links: desktopLinks },
+  },
+  {
     kind: "code",
     chapter: "01 / Setup",
     title: "Set up in one minute.",
@@ -47,15 +63,7 @@ const slides = [
       ["Add the SDK", ["npm install"], "One package. Node APIs come from @factory/droid-sdk/node."],
       ["Set your key", ["FACTORY_API_KEY"], "Create a key at app.factory.ai/settings/api-keys. The SDK reads it from the environment."],
     ],
-    // Same endpoints as DESKTOP_DOWNLOAD_CONFIG in the web app; each redirects to the latest installer.
-    downloads: {
-      label: "Also get Factory Desktop",
-      links: [
-        ["macOS (Apple Silicon)", "https://api.factory.ai/api/desktop?platform=darwin&architecture=arm64"],
-        ["macOS (Intel)", "https://api.factory.ai/api/desktop?platform=darwin&architecture=x64"],
-        ["Windows", "https://api.factory.ai/api/desktop?platform=win32"],
-      ],
-    },
+    downloads: { label: "Also get Factory Desktop", links: desktopLinks },
   },
   {
     kind: "code",
