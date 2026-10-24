@@ -52,7 +52,7 @@ const slides = [
     signature: "run(prompt, options?) → Promise<DroidResult>",
     file: "run.ts",
     points: [
-      ["Send a prompt", ["const prompt", "run(prompt"], "Droid reads the files in cwd, uses its tools and finishes the task."],
+      ["Send a prompt", ["const prompt", "run(prompt"], "Droid works in the current directory: it reads files, uses its tools and finishes the task."],
       ["Read the answer", ["result.text"], "The final text of the agent. run() closes its session for you."],
     ],
   },
@@ -72,7 +72,7 @@ const slides = [
     kind: "code",
     chapter: "04 / Sessions",
     title: "Keep a conversation going.",
-    signature: "createSession(options?) → session.stream(prompt)",
+    signature: "createSession() → session.stream(prompt)",
     file: "chat.ts",
     points: [
       ["Open a session", ["createSession"], "A session keeps context across prompts. Close it when you finish."],
