@@ -29,6 +29,13 @@ const slides = [
     },
   },
   {
+    kind: "hero",
+    chapter: "Start here",
+    title: "factory.com",
+    url: "https://factory.com",
+    lede: "Try Droid, then put it in your hack.",
+  },
+  {
     kind: "code",
     chapter: "01 / Setup",
     title: "Set up in one minute.",

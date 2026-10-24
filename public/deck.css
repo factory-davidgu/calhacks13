@@ -404,6 +404,40 @@ h2 {
   overflow: hidden;
   min-width: 0;
 }
+.hero-copy {
+  position: absolute;
+  top: 300px;
+  left: 120px;
+  right: 120px;
+}
+.hero-copy .eyebrow {
+  margin-bottom: 40px;
+}
+.hero-copy h1 {
+  font-size: 240px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.hero-link {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 28px;
+  padding-bottom: 24px;
+  border-bottom: 4px solid var(--accent);
+  color: var(--text);
+  text-decoration: none;
+}
+.hero-arrow {
+  font-size: 110px;
+  line-height: 1;
+  color: var(--accent);
+}
+.hero-lede {
+  margin-top: 56px;
+  font-size: 40px;
+  line-height: 1.4;
+  color: var(--secondary);
+}
 .cover-qr {
   position: absolute;
   right: 135px;
